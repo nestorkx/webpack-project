@@ -1,6 +1,6 @@
-const express           = require('express');
-const path              = require('path');
-const app               = express();
+const express = require('express');
+const path    = require('path');
+const app     = express();
 
 //Server routes..
 app.get('/hello',(req,res) => res.send({
@@ -15,7 +15,6 @@ if(process.env.NODE_ENV!=='production'){
 }else{
     app.use(express.static('dist'));
     app.get('*',( req, res) => {
-        console.log('===>'+path.join(__dirname,'dist/index.html')+"<==");
         res.sendFile(path.join(__dirname,'dist/index.html'));
     });
 }
